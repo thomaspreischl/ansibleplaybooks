@@ -1,0 +1,9 @@
+# playbook will execute netstat-e on remote windows pc
+
+- name: test cmd from win_command module
+  hosts: ANSIBLEGROUP
+  tasks:
+    - name: run netstat and return Ethernet stats 
+      win_command: netstat -e
+      register: netstat
+    - debug: var=netstat
